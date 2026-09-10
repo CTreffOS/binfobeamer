@@ -44,29 +44,29 @@ const scenes = [
     setup: progress.setup,
     draw: progress.draw,
   },
-  // {
-  //   setup: photo.make(
-  //     "diwo2025-pixelflut.jpg",
-  //     "© Lucas Günzel, Drehteam GmbH",
-  //   ),
-  //   draw: photo.draw,
-  // },
+  {
+    setup: photo.make(
+      "diwo2025-pixelflut.jpg",
+      "© Lucas Günzel, Drehteam GmbH",
+    ),
+    draw: photo.draw,
+  },
   {
     setup: logo.setup,
     draw: logo.draw,
   },
-  // {
-  //   setup: diwo.setup,
-  //   draw: diwo.draw,
-  // },
+  {
+    setup: diwo.setup,
+    draw: diwo.draw,
+  },
   {
     setup: walk.setup,
     draw: walk.draw,
   },
-  // {
-  //   setup: stolpersteine.setup,
-  //   draw: stolpersteine.draw,
-  // },
+  {
+    setup: stolpersteine.setup,
+    draw: stolpersteine.draw,
+  },
 ];
 
 let sceneChange = true;
