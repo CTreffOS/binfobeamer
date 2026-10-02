@@ -14,6 +14,7 @@ let data, imgs, anim;
 var backgroundImage;
 
 export async function setup() {
+  backgroundImage = undefined;
   contentWidth = width - margin - margin;
   contentHeight = height - margin - margin;
   data = list[floor(random(0, list.length))];
@@ -21,12 +22,16 @@ export async function setup() {
   anim = 0;
 
   if (imgs.length != 0) {
-    backgroundImage = await loadImage(imgs[floor(random(0, imgs.length))]);
+    loadImage(imgs[floor(random(0, imgs.length))]).then(handleImageLoad);
   }
-  noStroke();
+}
+
+function handleImageLoad(img) {
+  backgroundImage = img
 }
 
 export async function draw() {
+    noStroke();
   anim++;
   await drawBackground();
 
@@ -131,7 +136,7 @@ function drawQR() {
 }
 
 async function drawBackground() {
-  if (imgs.length == 0) {
+  if (!backgroundImage) {
     background(0);
     return;
   }
