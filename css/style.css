@@ -11,6 +11,7 @@ body {
     min-height: 100vh;
     background: #232323;
     overflow: hidden;
+    cursor: none;
 }
 
 .hue-rotate {
