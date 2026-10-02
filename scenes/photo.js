@@ -1,8 +1,9 @@
 const img = new Map();
 const fontSize = 32;
 
-export function make(file, copyright) {
+export function make(file, copyright, huerotate) {
   return async function setup() {
+    if (huerotate) document.querySelector("canvas").classList.add("hue-rotate");
     if (!img[file]) {
       img[file] = await loadImage(`../assets/${file}`);
     }

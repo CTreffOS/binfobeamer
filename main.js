@@ -24,7 +24,7 @@ const scenes = [
     draw: dvd.draw,
   },
   {
-    setup: photo.make("spacelights-banner.jpg"),
+    setup: photo.make("spacelights-banner.jpg", false, true),
     draw: photo.draw,
   },
 
@@ -70,6 +70,7 @@ const scenes = [
 ];
 
 let sceneChange = true;
+let anim = 0;
 let sceneIndex = scenes.length - 2;
 p5.disableFriendlyErrors = true;
 
@@ -79,6 +80,10 @@ window.setup = async function () {
 };
 
 window.draw = function () {
+  if (anim > 1400) {
+    sceneChange = true;
+    anim = 0;
+  }
   if (sceneChange) {
     sceneIndex++;
     sceneIndex %= scenes.length;
@@ -89,6 +94,7 @@ window.draw = function () {
   push();
   scenes[sceneIndex].draw();
   pop();
+  anim++;
   //drawFPS();
 };
 
@@ -108,8 +114,10 @@ function resetSettings() {
   strokeWeight(1);
   fill(255);
   stroke(0);
+  noStroke();
   textAlign(LEFT, BASELINE);
   textWeight(600);
+  document.querySelector("canvas").classList.remove("hue-rotate");
 }
 
 window.mousePressed = function () {

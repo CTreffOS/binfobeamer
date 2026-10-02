@@ -12,3 +12,16 @@ body {
     background: #232323;
     overflow: hidden;
 }
+
+.hue-rotate {
+  animation: hue-rotate 8s linear infinite;
+}
+
+@keyframes hue-rotate {
+  from {
+    filter: hue-rotate(0);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
